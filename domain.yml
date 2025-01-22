@@ -1,48 +1,46 @@
 version: "3.1"
 
 intents:
-  - ask_portfolio_definition
-  - ask_main_instrument
-  - ask_secondary_instrument
-  - ask_portfolio_parameters
-  - ask_instrument_parameters
-  - ask_notifications
-  - ask_position_parameters
-  - ask_formula_parameters
+  - ask_about_portfolio
+  - ask_about_main_leg
+  - ask_about_parameters
+  - ask_about_notifications
+  - ask_about_cpp_formulas
+  - ask_name
+  - goodbye
+
 
 entities:
   - portfolio
-  - instrument
-  - parameter
-  - notification
-  - formula
+  - main_leg
+  - parameters
+  - notifications
+  - cpp_formula
 
-slots: {}
 
 responses:
-  utter_ask_portfolio_definition:
-    - text: "Портфель — это алгоритм со всеми его настройками, который содержит биржевые инструменты, которыми предполагается торговать или использовать их в расчётах."
+  utter_ask_name:
+    - text: "Я ассистент."
+  utter_goodbye:
+    - text: "До встречи!"
+  utter_explain_portfolio:
+    - text: |
+        Портфель — это один из алгоритмов робота, включающий биржевые инструменты для торговли или расчётов. Он может содержать минимум один инструмент, и один из них должен быть отмечен как "Is first".
+  utter_explain_main_leg:
+    - text: |
+        Главная нога портфеля (Is first) — это инструмент, который является основным для торговли. Остальные инструменты называются второй ногой.
+  utter_explain_parameters:
+    - text: |
+        Параметры портфеля делятся на два вида:
+        1. Параметры, задаваемые на весь портфель.
+        2. Параметры для каждого инструмента отдельно.
+  utter_explain_notifications:
+    - text: |
+        Параметры уведомлений настраиваются для всего портфеля. Они используются для информирования о событиях.
+  utter_explain_cpp_formulas:
+    - text: |
+        Некоторые параметры портфеля и инструментов могут быть заданы как формулы на языке C++ для большей гибкости.
 
-  utter_ask_main_instrument:
-    - text: "Главный инструмент — это инструмент портфеля, отмеченный признаком Is first. Он также называется первой ногой портфеля."
-
-  utter_ask_secondary_instrument:
-    - text: "Второй ногой портфеля называются инструменты портфеля, не отмеченные признаком Is first."
-
-  utter_ask_portfolio_parameters:
-    - text: "Параметры портфеля — это параметры, которые задаются на весь портфель."
-
-  utter_ask_instrument_parameters:
-    - text: "Параметры инструментов портфеля — это параметры, которые задаются отдельно для каждого из инструментов портфеля."
-
-  utter_ask_notifications:
-    - text: "Параметры уведомлений (Notifications) задаются для всего портфеля."
-
-  utter_ask_position_parameters:
-    - text: "Параметры позиций по инструментам и параметры позиций по валютам задаются для каждого используемого инструмента каждого транзакционного подключения."
-
-  utter_ask_formula_parameters:
-    - text: "Некоторые параметры портфеля и инструментов могут быть заданы как формулы на языке программирования C++ для большей гибкости."
 
 actions:
   - utter_ask_portfolio_definition
@@ -54,7 +52,32 @@ actions:
   - utter_ask_position_parameters
   - utter_ask_formula_parameters
 
-forms: {}
+slots:
+  portfolio:
+    type: text
+    mappings:
+      - type: from_text
+
+  main_leg:
+    type: text
+    mappings:
+      - type: from_text
+
+  parameters:
+    type: text
+    mappings:
+      - type: from_text
+
+  notifications:
+    type: text
+    mappings:
+      - type: from_text
+
+  cpp_formula:
+    type: text
+    mappings:
+      - type: from_text
+
 
 session_config:
   session_expiration_time: 60

@@ -1,91 +1,61 @@
 version: "3.1"
 
 nlu:
-- intent: greet
+- intent: ask_name
   examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+    - Как тебя зовут?
+    - Кто ты?
+    - Как тебя зовут, бот?
+    - Назови своё имя
 
 - intent: goodbye
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+    - До свидания
+    - Пока
+    - Увидимся
+    - Всего хорошего
 
-- intent: affirm
+- intent: ask_about_portfolio
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+    - Как устроен портфель?
+    - Что такое портфель робота?
+    - Сколько инструментов может быть в портфеле?
 
-- intent: deny
+- intent: ask_about_main_leg
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - Что такое Is first?
+    - Как выбрать главную ногу портфеля?
+    - Что означает первая нога портфеля?
 
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
 
-- intent: mood_unhappy
+- intent: ask_about_parameters
   examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - Какие параметры есть у портфеля?
+    - Какие бывают параметры инструментов?
+    - Что такое редактируемые параметры?
 
-- intent: bot_challenge
+
+- intent: ask_about_notifications
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - Как настроить уведомления?
+    - Что такое параметры уведомлений?
+
+- intent: ask_about_cpp_formulas
+  examples: |
+    - Что такое формулы на языке C++?
+    - Как задать параметры через C++?
+
+- intent: ask_notifications
+  examples: |
+    - Какие параметры уведомлений задаются для портфеля?
+    - Что такое параметры уведомлений?
+
+- intent: ask_position_parameters
+  examples: |
+    - Какие параметры задаются для каждого используемого инструмента?
+    - Что такое параметры позиций по инструментам?
+
+- intent: ask_formula_parameters
+  examples: |
+    - Какие параметры могут быть заданы как формулы?
+    - Можно ли использовать формулы для настройки параметров?
