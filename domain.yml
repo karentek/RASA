@@ -1,0 +1,61 @@
+version: "3.1"
+
+intents:
+  - ask_portfolio_definition
+  - ask_main_instrument
+  - ask_secondary_instrument
+  - ask_portfolio_parameters
+  - ask_instrument_parameters
+  - ask_notifications
+  - ask_position_parameters
+  - ask_formula_parameters
+
+entities:
+  - portfolio
+  - instrument
+  - parameter
+  - notification
+  - formula
+
+slots: {}
+
+responses:
+  utter_ask_portfolio_definition:
+    - text: "Портфель — это алгоритм со всеми его настройками, который содержит биржевые инструменты, которыми предполагается торговать или использовать их в расчётах."
+
+  utter_ask_main_instrument:
+    - text: "Главный инструмент — это инструмент портфеля, отмеченный признаком Is first. Он также называется первой ногой портфеля."
+
+  utter_ask_secondary_instrument:
+    - text: "Второй ногой портфеля называются инструменты портфеля, не отмеченные признаком Is first."
+
+  utter_ask_portfolio_parameters:
+    - text: "Параметры портфеля — это параметры, которые задаются на весь портфель."
+
+  utter_ask_instrument_parameters:
+    - text: "Параметры инструментов портфеля — это параметры, которые задаются отдельно для каждого из инструментов портфеля."
+
+  utter_ask_notifications:
+    - text: "Параметры уведомлений (Notifications) задаются для всего портфеля."
+
+  utter_ask_position_parameters:
+    - text: "Параметры позиций по инструментам и параметры позиций по валютам задаются для каждого используемого инструмента каждого транзакционного подключения."
+
+  utter_ask_formula_parameters:
+    - text: "Некоторые параметры портфеля и инструментов могут быть заданы как формулы на языке программирования C++ для большей гибкости."
+
+actions:
+  - utter_ask_portfolio_definition
+  - utter_ask_main_instrument
+  - utter_ask_secondary_instrument
+  - utter_ask_portfolio_parameters
+  - utter_ask_instrument_parameters
+  - utter_ask_notifications
+  - utter_ask_position_parameters
+  - utter_ask_formula_parameters
+
+forms: {}
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
